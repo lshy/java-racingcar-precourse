@@ -32,4 +32,12 @@ public class CarRaceOutputController {
     public void printException(Exception e) {
         System.out.println(e.getMessage());
     }
+
+    public void printWinner(List<String> winnerNameList) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("최종 우승자 : ")
+                .append(String.join(", ", winnerNameList));
+
+        System.out.println(sb.toString());
+    }
 }

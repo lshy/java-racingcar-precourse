@@ -16,4 +16,9 @@ public class CarResult {
             this.location -= 1;
         }
     }
+
+    public boolean isWinner(int winnerLocation){
+        return location == winnerLocation;
+    }
+
 }

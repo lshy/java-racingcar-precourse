@@ -35,4 +35,19 @@ public class Cars {
     public Car getIndexOfCar(int index){
         return carList.get(index);
     }
+
+    public List<String> getWinnerName(List<Boolean> winnerIndexList) {
+        List<String> winnerNameList = new ArrayList<>();
+        for(int i = 0; i<carCount; ++i){
+            addWinnerCarName(winnerNameList, carList.get(i), winnerIndexList.get(i));
+        }
+
+        return winnerNameList;
+    }
+
+    private void addWinnerCarName(List<String> winnerNameList, Car car, Boolean isWinner) {
+        if(isWinner){
+            winnerNameList.add(car.getName());
+        }
+    }
 }

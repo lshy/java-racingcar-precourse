@@ -48,4 +48,25 @@ public class CarResults {
     public CarResult getIndexOfResult(int index){
         return carResults.get(index);
     }
+
+    public List<Boolean> getWinnerIndex() {
+        List<Boolean> winnerist = new ArrayList<>();
+
+        int maxMove = getMaxMove();
+        for(CarResult carResult : carResults){
+            winnerist.add(carResult.isWinner(maxMove));
+        }
+
+        return winnerist;
+    }
+
+    private int getMaxMove() {
+
+        int max = 0;
+        for(CarResult carResult : carResults){
+            max = Math.max(max, carResult.getLocation());
+        }
+
+        return max;
+    }
 }

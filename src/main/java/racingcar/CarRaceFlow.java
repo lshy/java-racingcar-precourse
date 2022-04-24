@@ -19,9 +19,16 @@ public class CarRaceFlow {
     public void excuteCarRace(){
 
         initGameData();
-        carRaceOutputController.printRoundResultTitle();
         simulateRacingGame();
+        showGameResult();
 
+    }
+
+    private void showGameResult() {
+
+        List<Boolean> winnerIndexList = carResults.getWinnerIndex();
+        List<String> winnerNameList = cars.getWinnerName(winnerIndexList);
+        carRaceOutputController.printWinner(winnerNameList);
     }
 
     private void initGameData(){
@@ -42,6 +49,7 @@ public class CarRaceFlow {
     }
 
     private void simulateRacingGame(){
+        carRaceOutputController.printRoundResultTitle();
         while(!carResults.isGameEnd()){
             List<CarStatus> carStatusList = carStatusGenerator.generateRandomStatus(cars.getCarCount());
             carResults.playMove(carStatusList);
