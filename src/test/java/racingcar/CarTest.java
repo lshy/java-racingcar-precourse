@@ -49,20 +49,20 @@ public class CarTest {
 
     @Test
     void CarResultsEndTest(){
-        CarResults carResults = new CarResults(1, 0);
+        CarResults carResults = new CarResults(1, "0");
         assertThat(carResults.isGameEnd()).isEqualTo(true);
     }
 
     @Test
     void CarResultsNotEndTest(){
-        CarResults carResults = new CarResults(1, 3);
+        CarResults carResults = new CarResults(1, "3");
         assertThat(carResults.isGameEnd()).isEqualTo(false);
     }
 
     @ParameterizedTest
     @CsvSource(value = {"0:0", "1:1", "2:0"}, delimiter = ':')
     void CarMovePlayTest(int index, String expect){
-        CarResults carResults = new CarResults(1, 3);
+        CarResults carResults = new CarResults(1, "3");
 
         List<CarStatus> moveCommandList = new ArrayList<>();
         moveCommandList.add(CarStatus.BACKWORD);
@@ -75,7 +75,7 @@ public class CarTest {
     @ParameterizedTest
     @CsvSource(value = {"0:2", "1:3", "2:0"}, delimiter = ':')
     void CarMovePlay3TimeTest(int index, int expect){
-        CarResults carResults = new CarResults(3, 3);
+        CarResults carResults = new CarResults(3, "3");
 
         List<CarStatus> moveCommandList = new ArrayList<>();
         moveCommandList.add(CarStatus.BACKWORD);

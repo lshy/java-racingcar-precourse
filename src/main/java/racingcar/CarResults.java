@@ -9,9 +9,10 @@ public class CarResults {
     private final List<CarResult> carResults;
     private int gameRound;
 
-    public CarResults(int count, int gameRound){
+    public CarResults(int count, String gameRound){
         this.carResults = makeCarResults(count);
-        this.gameRound = gameRound;
+        validGameRoundInput(gameRound);
+        this.gameRound = Integer.valueOf(gameRound);
     }
 
     public List<CarResult> getCarResults() {
@@ -68,5 +69,16 @@ public class CarResults {
         }
 
         return max;
+    }
+
+    private void validGameRoundInput(String gameRound) {
+
+        if(!ValidUtils.isNumber(gameRound)) {
+            throw new IllegalStateException("[ERROR] 숫자만 입력 가능합니다.");
+        }
+
+        if(!ValidUtils.isPlus(gameRound)){
+            throw new IllegalStateException("[ERROR] 양수만 입력 가능합니다.");
+        }
     }
 }

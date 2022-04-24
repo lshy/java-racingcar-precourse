@@ -33,19 +33,35 @@ public class CarRaceFlow {
 
     private void initGameData(){
 
-        try {
+        cars = makeCars(carRaceInputController.carNamesInput());
+        carResults = makeCarResults(cars.getCarCount(), carRaceInputController.carRaceRoundInput());
 
-            cars = new Cars(carRaceInputController.carNamesInput());
-            carResults = new CarResults(cars.getCarCount(), carRaceInputController.carRaceRoundInput());
+    }
 
-        }catch (IllegalArgumentException e){
+    private CarResults makeCarResults(int carCount, String carRoundInput){
+
+        CarResults newCarResult;
+        try{
+            newCarResult = new CarResults(carCount, carRoundInput);
+        }catch(IllegalStateException e){
             carRaceOutputController.printException(e);
-            cars = new Cars(carRaceInputController.carNamesInput());
-        }catch (IllegalStateException e){
-            carRaceOutputController.printException(e);
-            carResults = new CarResults(cars.getCarCount(), carRaceInputController.carRaceRoundInput());
+            return makeCarResults(cars.getCarCount(), carRaceInputController.carRaceRoundInput());
         }
 
+        return newCarResult;
+    }
+
+    private Cars makeCars(String carNamesInput) {
+
+        Cars newCars;
+        try{
+            newCars = new Cars(carNamesInput);
+        }catch(IllegalArgumentException e){
+            carRaceOutputController.printException(e);
+            return makeCars(carRaceInputController.carNamesInput());
+        }
+
+        return newCars;
     }
 
     private void simulateRacingGame(){

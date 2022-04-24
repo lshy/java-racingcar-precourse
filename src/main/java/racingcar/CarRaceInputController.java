@@ -10,17 +10,10 @@ public class CarRaceInputController {
         return Console.readLine();
     }
 
-    public int carRaceRoundInput(){
+    public String carRaceRoundInput(){
         System.out.println("시도할 회수는 몇회인가요?");
-        String gameRound = Console.readLine();
-        validRaceRoundInput(gameRound);
-        return Integer.valueOf(gameRound);
+
+        return Console.readLine();
     }
 
-    private void validRaceRoundInput(String gameRound) {
-
-        if(!ValidUtils.isNumber(gameRound)) {
-            throw new IllegalStateException("[ERROR] 숫자만 입력 가능합니다.");
-        }
-    }
 }
