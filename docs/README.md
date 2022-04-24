@@ -4,10 +4,11 @@
 3. 출력 기능 CarRaceOutputController
 4. 자동차 리스트 Cars
 5. 자동차 Car
-7. 자동차 진행 상태 CarStatus
-8. 자동차 결과 CarResult
-9. 자동차 게임 진행 CarRaceFlow
-10. 자동차 전후진 생성기 CarPlayGenerator
+6. 자동차 진행 상태 CarStatus
+7. 자동차 결과 CarResult
+8. 자동차 게임 진행 CarRaceFlow
+9. 자동차 전후진 생성기 CarPlayGenerator
+10. 유효성 검사 함수 추가 ValidUtils
 
 •주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
 •각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.

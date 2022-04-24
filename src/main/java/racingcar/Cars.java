@@ -6,6 +6,7 @@ import java.util.List;
 public class Cars {
 
     private final List<Car> carList;
+    private final int carCount;
 
     public List<Car> getCarList() {
         return carList;
@@ -13,6 +14,7 @@ public class Cars {
 
     public Cars(String inputName) {
         this.carList = makeCarList(inputName);
+        this.carCount = carList.size();
     }
 
     private static List<Car> makeCarList(String inputName){
@@ -24,5 +26,13 @@ public class Cars {
         }
 
         return list;
+    }
+
+    public int getCarCount() {
+        return carCount;
+    }
+
+    public Car getIndexOfCar(int index){
+        return carList.get(index);
     }
 }

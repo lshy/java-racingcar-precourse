@@ -44,4 +44,8 @@ public class CarResults {
     private void reduceGameRound() {
         gameRound -= 1;
     }
+
+    public CarResult getIndexOfResult(int index){
+        return carResults.get(index);
+    }
 }
